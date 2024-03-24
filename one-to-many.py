@@ -36,11 +36,6 @@ def get_books_by_category():
     if not category:
         return "Категории не найдено"
 
-    books = Book.query.filter_by(category=category).all()
-
-    if not books:
-        return "В этой категории нет книг"
-
     books_data = [{"title": book.title, "author": book.author} for book in books]
     return jsonify(books_data)
 
